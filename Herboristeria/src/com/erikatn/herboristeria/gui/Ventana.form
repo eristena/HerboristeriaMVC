@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.erikatn.herboristeria.gui.Ventana">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FormLayout">
-    <rowspec value="center:d:noGrow"/>
+  <grid id="27dc6" binding="panel1" layout-manager="FormLayout">
+    <rowspec value="center:16px:noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
@@ -14,22 +14,37 @@
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:4dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
-    <colspec value="fill:104px:noGrow"/>
-    <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:d:noGrow"/>
-    <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:max(d;4px):noGrow"/>
-    <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:max(d;4px):noGrow"/>
-    <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:max(d;4px):noGrow"/>
+    <rowspec value="top:20dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <colspec value="fill:100px:noGrow"/>
+    <colspec value="left:20dlu:noGrow"/>
+    <colspec value="fill:120px:noGrow"/>
+    <colspec value="left:20dlu:noGrow"/>
+    <colspec value="fill:120px:noGrow"/>
+    <colspec value="left:20dlu:noGrow"/>
+    <colspec value="fill:120px:noGrow"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="565" height="439"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="11984" class="javax.swing.JRadioButton" binding="radioButton1" default-binding="true">
+      <component id="a2f6" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Eligeb producto"/>
+        </properties>
+      </component>
+      <component id="99da8" class="javax.swing.JRadioButton" binding="infusionRadioButton" default-binding="true">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
@@ -38,7 +53,7 @@
           <text value="Infusion"/>
         </properties>
       </component>
-      <component id="26990" class="javax.swing.JRadioButton" binding="radioButton2" default-binding="true">
+      <component id="10141" class="javax.swing.JRadioButton" binding="aceitesRadioButton" default-binding="true">
         <constraints>
           <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
@@ -47,87 +62,173 @@
           <text value="Aceites"/>
         </properties>
       </component>
-      <component id="4d60d" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="Tipo de Producto"/>
-        </properties>
-      </component>
-      <component id="6e55e" class="javax.swing.JRadioButton" binding="radioButton3" default-binding="true">
+      <component id="d7657" class="javax.swing.JRadioButton" binding="complementosRadioButton" default-binding="true">
         <constraints>
           <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <text value="Planta"/>
+          <text value="Complementos"/>
         </properties>
       </component>
-      <component id="862ed" class="javax.swing.JRadioButton" binding="radioButton4" default-binding="true">
+      <component id="a8c9b" class="javax.swing.JTextField" binding="codigoTxt">
         <constraints>
-          <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms/>
+          <grid row="2" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
         </constraints>
-        <properties>
-          <text value="Complemento"/>
-        </properties>
+        <properties/>
       </component>
-      <component id="79995" class="javax.swing.JLabel">
+      <component id="f8d59" class="javax.swing.JLabel">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Codigo:"/>
         </properties>
       </component>
-      <component id="bf7eb" class="javax.swing.JLabel">
+      <component id="f728" class="javax.swing.JTextField" binding="nombreTxt">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="681c4" class="javax.swing.JTextField" binding="PrecioTxt">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="93e0b" class="com.github.lgooddatepicker.components.DatePicker" binding="fechaCadDP">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="dc5d" class="javax.swing.JLabel">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Nombre:"/>
         </properties>
       </component>
-      <component id="2a7c6" class="javax.swing.JLabel">
+      <component id="15e10" class="javax.swing.JLabel">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Precio €"/>
         </properties>
       </component>
-      <component id="a0a16" class="javax.swing.JLabel">
+      <component id="c8a18" class="javax.swing.JLabel">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Fehca Caducidad"/>
         </properties>
       </component>
-      <component id="8ad02" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="Label"/>
-        </properties>
-      </component>
-      <component id="a8f9e" class="javax.swing.JLabel">
+      <component id="8d2ed" class="javax.swing.JLabel">
         <constraints>
           <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <forms/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="Descripcion"/>
+        </properties>
+      </component>
+      <component id="788ea" class="javax.swing.JButton" binding="importarButton" default-binding="true">
+        <constraints>
+          <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Importar"/>
+        </properties>
+      </component>
+      <component id="d5937" class="javax.swing.JButton" binding="exportarButton" default-binding="true">
+        <constraints>
+          <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Exportar"/>
+        </properties>
+      </component>
+      <component id="c315e" class="javax.swing.JButton" binding="nuevoButton" default-binding="true">
+        <constraints>
+          <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Nuevo"/>
+        </properties>
+      </component>
+      <component id="3411f" class="javax.swing.JButton" binding="eliminarButton" default-binding="true">
+        <constraints>
+          <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Eliminar"/>
+        </properties>
+      </component>
+      <component id="55881" class="javax.swing.JTextArea" binding="descripcionTxt">
+        <constraints>
+          <grid row="12" column="2" row-span="2" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="f43" class="javax.swing.JList" binding="listaProductosAnanidos">
+        <constraints>
+          <grid row="16" column="2" row-span="5" col-span="5" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <forms defaultalign-vert="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="f8788" class="javax.swing.JTextField" binding="graMl">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="a273c" class="javax.swing.JLabel" binding="campoCambiante">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Gramos:"/>
         </properties>
       </component>
     </children>
   </grid>
+  <buttonGroups>
+    <group name="productos">
+      <member id="99da8"/>
+      <member id="10141"/>
+      <member id="d7657"/>
+    </group>
+  </buttonGroups>
 </form>

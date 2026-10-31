@@ -8,8 +8,8 @@ public class Compremento extends Producto {
         super();
     }
 
-    public Compremento(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion, int capsulasPorBote) {
-        super(codigo, nombre, precio, fechaCaducicada, descripcion);
+    public Compremento(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion, int stock, int capsulasPorBote) {
+        super(codigo, nombre, precio, fechaCaducicada, descripcion, stock);
         this.capsulasPorBote = capsulasPorBote;
     }
 

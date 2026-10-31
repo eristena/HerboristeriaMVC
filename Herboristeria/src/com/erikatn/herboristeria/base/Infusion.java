@@ -5,8 +5,10 @@ import java.time.LocalDate;
 public class Infusion extends Producto {
     double gramos;
 
-    public Infusion(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion, double gramos) {
-        super(codigo, nombre, precio, fechaCaducicada, descripcion);
+
+    public Infusion(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion,
+                    int stock, double gramos) {
+        super(codigo, nombre, precio, fechaCaducicada, descripcion, stock);
         this.gramos = gramos;
     }
 

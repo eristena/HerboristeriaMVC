@@ -5,8 +5,10 @@ import java.time.LocalDate;
 public class Aceite extends Producto {
     private double mililitros;
 
-    public Aceite(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion, double mililitros) {
-        super(codigo, nombre, precio, fechaCaducicada, descripcion);
+
+    public Aceite(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion,
+                  int stock, double mililitros) {
+        super(codigo, nombre, precio, fechaCaducicada, descripcion, stock);
         this.mililitros = mililitros;
     }
 

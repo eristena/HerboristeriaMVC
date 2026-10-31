@@ -11,12 +11,13 @@ public class Producto {
     int stock;
 
 
-    public Producto(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion) {
+    public Producto(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion,int stock) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCaducicada = fechaCaducicada;
         this.descripcion = descripcion;
+        this.stock= stock;
     }
     public Producto() {
 
