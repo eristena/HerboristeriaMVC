@@ -26,9 +26,7 @@ public class Aceite extends Producto {
 
     @Override
     public String toString() {
-        return "Aceite{" +
-                "mililitros=" + mililitros +
-                '}';
+        return "Aceite " + getNombre()+ ", " + getCodigo() +", " + getPrecio() + "€";
     }
 
 }

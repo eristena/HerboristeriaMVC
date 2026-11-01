@@ -12,7 +12,7 @@ public class Ventana {
     public JRadioButton complementosRadioButton;
     public JTextField codigoTxt;
     public JTextField nombreTxt;
-    public JTextField PrecioTxt;
+    public JTextField precioTxt;
     public DatePicker fechaCadDP;
     public JButton importarButton;
     public JButton exportarButton;
@@ -22,7 +22,8 @@ public class Ventana {
     public JList listaProductosAnanidos;
     public JTextField graMl;
     public JLabel campoCambiante;
-    //los creo a malo
+    public JTextField stockTxt;
+    //los creo a mio
     public JFrame frame;
     public DefaultListModel<Producto> dlmProducto;
 
@@ -33,9 +34,10 @@ public class Ventana {
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        initComponents();
 
     }
-    public void initComponets(){
+    public void initComponents(){
         dlmProducto=new DefaultListModel<Producto>();
         listaProductosAnanidos.setModel(dlmProducto);
     }

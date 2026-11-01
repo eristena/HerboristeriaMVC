@@ -3,8 +3,7 @@ package com.erikatn.herboristeria.base;
 import java.time.LocalDate;
 
 public class Infusion extends Producto {
-    double gramos;
-
+    private double gramos;
 
     public Infusion(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion,
                     int stock, double gramos) {
@@ -26,14 +25,7 @@ public class Infusion extends Producto {
 
     @Override
     public String toString() {
-        return "Infusion{" +
-                "gramos=" + gramos +
-                ", codigo='" + codigo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                ", fechaCaducicada=" + fechaCaducicada +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
+        return "Infusion " + getNombre()+ ", " + getCodigo() +", " + getPrecio() + "€";
     }
 }
 

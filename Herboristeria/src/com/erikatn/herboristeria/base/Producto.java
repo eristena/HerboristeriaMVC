@@ -3,12 +3,12 @@ package com.erikatn.herboristeria.base;
 import java.time.LocalDate;
 
 public class Producto {
-    String codigo;
-    String nombre;
-    double precio;
-    LocalDate fechaCaducicada;
-    String descripcion;
-    int stock;
+    private String codigo;
+    private String nombre;
+    private double precio;
+    private LocalDate fechaCaducicada;
+    private String descripcion;
+    private int stock;
 
 
     public Producto(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion,int stock) {
@@ -60,6 +60,14 @@ public class Producto {
     }
 
     public void setDescripcion(String descripcion) {
-        descripcion = descripcion;
+        this.descripcion = descripcion;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }
