@@ -1,5 +1,8 @@
 package com.erikatn.herboristeria.gui;
 
+import com.erikatn.herboristeria.base.Aceite;
+import com.erikatn.herboristeria.base.Complemento;
+import com.erikatn.herboristeria.base.Infusion;
 import com.erikatn.herboristeria.base.Producto;
 import org.xml.sax.SAXException;
 import util.Util;
@@ -137,6 +140,19 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
             }
 
             break;
+        case "Eliminar":
+            //cojo el inidice del producto que eliminare
+            int indice = ventana.listaProductosAnanidos.getSelectedIndex();
+            //si no hay nada es -1
+            if (indice == -1) {
+                Util.mensajeError("Selecciona un producto de la lista");
+                break;
+            }
+            //me voy al modelo y le digo que lo quite del array
+            modelo.getListaDeProductos().remove(indice);
+            //me voy a dlm pra que lo quite y asi se actualice en la vista
+            ventana.dlmProducto.remove(indice);
+            break;
 
         case "Infusion":
             ventana.campoCambiante.setText("Gramos");
@@ -184,8 +200,37 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
     @Override
     public void valueChanged(ListSelectionEvent listSelectionEvent) {
 
+        if (listSelectionEvent.getValueIsAdjusting() ) {
+
+            // cojo el producto que he hecho click pero me lo devuelve como objeto literalmente
+
+            Producto productoSeleccionado = (Producto) ventana.listaProductosAnanidos.getSelectedValue();
+
+            // pongo los datos en los cuadros
+            ventana.codigoTxt.setText(productoSeleccionado.getCodigo());
+            ventana.nombreTxt.setText(productoSeleccionado.getNombre());
+
+            ventana.precioTxt.setText(String.valueOf(productoSeleccionado.getPrecio()));
+            // LA FECHA GET DATE QUE SINO PETA MUCHO
+            ventana.fechaCadDP.setDate(productoSeleccionado.getFechaCaducicada());
+            ventana.descripcionTxt.setText(productoSeleccionado.getDescripcion());
+            ventana.stockTxt.setText(String.valueOf(productoSeleccionado.getStock()));
+            // miro que tipo de producto es para el radiobutton, comprebo si son instancias de cada uno
+            // y le digo que haga click a eso
+            if (productoSeleccionado instanceof Infusion) {
+                ventana.infusionRadioButton.doClick();
+                //casteo el  el producto para poder usar el get propio de cada clase
+                ventana.graMl.setText(String.valueOf(((Infusion) productoSeleccionado).getGramos()));
+            } else if (productoSeleccionado instanceof Aceite) {
+                ventana.aceitesRadioButton.doClick();
+                ventana.graMl.setText(String.valueOf(((Aceite) productoSeleccionado).getMililitros()));
+            } else {
+                ventana.complementosRadioButton.doClick();
+                ventana.graMl.setText(String.valueOf(((Complemento) productoSeleccionado).getCapsulasPorBote()));
+            }
+        }
     }
-    
+
     @Override
     public void windowClosing(WindowEvent windowEvent) {
         int respuesta= Util.mensajeConfirmacionSalida("Seguro que desa salir???", "Salir");
