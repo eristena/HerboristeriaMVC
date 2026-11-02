@@ -45,6 +45,14 @@ public class HerboristeriaModelo {
         Complemento nuevoComplemento = new Complemento(codigo, nombre, precio, fechaCaducicada, descripcion, stock, capsulasPorBote);
         listaDeProductos.add(nuevoComplemento);
     }
+    public Producto existeProducto(String codigo){
+        for(Producto producto:listaDeProductos){
+            if (producto.getCodigo().equalsIgnoreCase(codigo)){
+                return producto;
+            }
+        }
+        return null;
+    }
 
     public boolean existeCodigo(String codigo) {
         for (Producto producto : listaDeProductos) {

@@ -40,10 +40,11 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
     }
     //x mi xfavor si meto otra funcionalidad apuntar aqui nopuedo mas
     public void addActionListener(ActionListener listener){
-        ventana.importarButton.addActionListener(listener);
+        ventana.eliminarButton.addActionListener(listener);
+        ventana.buscarButton.addActionListener(listener);
         ventana.exportarButton.addActionListener(listener);
         ventana.nuevoButton.addActionListener(listener);
-        ventana.eliminarButton.addActionListener(listener);
+        ventana.importarButton.addActionListener(listener);
         ventana.infusionRadioButton.addActionListener(listener);
         ventana.aceitesRadioButton.addActionListener(listener);
         ventana.complementosRadioButton.addActionListener(listener);
@@ -152,6 +153,23 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
             modelo.getListaDeProductos().remove(indice);
             //me voy a dlm pra que lo quite y asi se actualice en la vista
             ventana.dlmProducto.remove(indice);
+            break;
+        case "Buscar":
+            //compruebo que esta buscando algo
+            if(ventana.buscarCodTxt.getText().isEmpty()){
+                Util.mensajeError("Tienes que buscar un codigo en el apartado de buscar");
+                break;
+            }
+            //creo el objeto de producto encontrado y con el metodo y le paso el codigo a buscar:/
+            Producto productoEncontrado=modelo.existeProducto(ventana.buscarCodTxt.getText());
+            if (productoEncontrado==null){
+                Util.mensajeError("No existe un producto con ese codigo");
+                break;
+            }
+            //pido la lista de productos y con eso busco la posicion de mi producto
+            int posicion=modelo.getListaDeProductos().indexOf(productoEncontrado);
+            //aqui voy al list y le digo que vaya a el que este en tal posicion
+            ventana.listaProductosAnanidos.setSelectedIndex(posicion);
             break;
 
         case "Infusion":
