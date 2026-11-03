@@ -21,6 +21,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class HerboristeriaModelo {
+    /**  **/
     private ArrayList<Producto> listaDeProductos;
 
     public HerboristeriaModelo() {
@@ -30,21 +31,22 @@ public class HerboristeriaModelo {
     public ArrayList<Producto> getListaDeProductos() {
         return listaDeProductos;
     }
-
+    /** metodo que da de alta una infusion**/
     public void altaInfusion(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion, int stock, double gramos) {
         Infusion nuevaInfusion = new Infusion(codigo, nombre, precio, fechaCaducicada, descripcion, stock, gramos);
         listaDeProductos.add(nuevaInfusion);
     }
-
+    /** metodo que da de alta un aceite**/
     public void altaAceite(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion, int stock, double mililitros) {
         Aceite nuevoAceite = new Aceite(codigo, nombre, precio, fechaCaducicada, descripcion, stock, mililitros);
         listaDeProductos.add(nuevoAceite);
     }
-
+    /** metodo que da de alta un Complemento**/
     public void altaComplemento(String codigo, String nombre, double precio, LocalDate fechaCaducicada, String descripcion, int stock, int capsulasPorBote) {
         Complemento nuevoComplemento = new Complemento(codigo, nombre, precio, fechaCaducicada, descripcion, stock, capsulasPorBote);
         listaDeProductos.add(nuevoComplemento);
     }
+    /** comprubo si el producto con el codigo indicado existe, si es asi lo devuelve y sino null**/
     public Producto existeProducto(String codigo){
         for(Producto producto:listaDeProductos){
             if (producto.getCodigo().equalsIgnoreCase(codigo)){
@@ -53,7 +55,7 @@ public class HerboristeriaModelo {
         }
         return null;
     }
-
+    /** comprubo si el codigo indicado existe**/
     public boolean existeCodigo(String codigo) {
         for (Producto producto : listaDeProductos) {
             if (producto.getCodigo().equals(codigo)) {
@@ -63,6 +65,7 @@ public class HerboristeriaModelo {
         return false;
     }
 
+    /** metod que crea el archivo a exportar y guarda el fichero **/
     public void exportarXML(File fichero) throws ParserConfigurationException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -87,7 +90,7 @@ public class HerboristeriaModelo {
                 nodoProducto = documento.createElement("Complemento");
             }
             raiz.appendChild(nodoProducto);
-            //dentro de producto codigo nombre....
+            //dentro de producto codigo nombre etc..
             nodoDatos = documento.createElement("codigo");
             nodoProducto.appendChild(nodoDatos);
             texto = documento.createTextNode(unProducto.getCodigo());
@@ -136,13 +139,13 @@ public class HerboristeriaModelo {
                 nodoDatos.appendChild(texto);
             }
         }
-        //guardi fichero
+        //guarda fichero
         Source source = new DOMSource(documento);
         Result resultado = new StreamResult(fichero);
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.transform(source, resultado);
     }
-
+    /** mertodo que coje un archivo xml y lo importa al miniprograma **/
     public void importarXML(File fichero) throws ParserConfigurationException, IOException, SAXException {
         listaDeProductos = new ArrayList<Producto>();
         Infusion nuevaInfusion = null;

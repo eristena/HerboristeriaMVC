@@ -44,8 +44,8 @@ public class Ventana {
         frame.setVisible(true);
         initComponents();
 
-
     }
+
     public void initComponents(){
         panel1.setBackground(new Color(168, 240, 153));
         aceitesRadioButton.setBackground(new Color(168, 240, 153));
@@ -60,18 +60,15 @@ public class Ventana {
 
         eliminarButton.setBackground(new Color (100, 175, 90));
         eliminarButton.setForeground(Color.white);
+
         venderButton.setBackground(new Color (100, 175, 90));
         venderButton.setForeground(Color.white);
+
         buscarButton.setBackground(new Color (100, 175, 90));
         buscarButton.setForeground(Color.white);
+
         exportarButton.setBackground(new Color (100, 175, 90));
         exportarButton.setForeground(Color.white);
-
-       /* ;
-        ;
-        ;
-        ;
-        ;*/
 
 
         dlmProducto=new DefaultListModel<Producto>();

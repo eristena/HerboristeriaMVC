@@ -87,24 +87,26 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
                 Util.mensajeError("Ya hay un producto con este codigo");
                 break;
             }
-            if(ventana.infusionRadioButton.isSelected()){
-                modelo.altaInfusion(ventana.codigoTxt.getText(),ventana.nombreTxt.getText(),
-                        Double.parseDouble(ventana.precioTxt.getText()),ventana.fechaCadDP.getDate(),
-                        ventana.descripcionTxt.getText(),Integer.parseInt(ventana.stockTxt.getText()),
-                        Double.parseDouble(ventana.graMl.getText()));
-            }else if(ventana.aceitesRadioButton.isSelected()){
-                modelo.altaAceite(ventana.codigoTxt.getText(),ventana.nombreTxt.getText(),
-                        Double.parseDouble(ventana.precioTxt.getText()), ventana.fechaCadDP.getDate(),
-                        ventana.descripcionTxt.getText(),Integer.parseInt(ventana.stockTxt.getText()),
-                        Double.parseDouble(ventana.graMl.getText()));
-            }else{
-                modelo.altaComplemento(ventana.codigoTxt.getText(),ventana.nombreTxt.getText(),
-                        Double.parseDouble(ventana.precioTxt.getText()), ventana.fechaCadDP.getDate(),
-                        ventana.descripcionTxt.getText(),Integer.parseInt(ventana.stockTxt.getText()),
-                        Integer.parseInt(ventana.graMl.getText()));
+            try {
+                if (ventana.infusionRadioButton.isSelected()) {
+                    modelo.altaInfusion(ventana.codigoTxt.getText(), ventana.nombreTxt.getText(),
+                            Double.parseDouble(ventana.precioTxt.getText()), ventana.fechaCadDP.getDate(),
+                            ventana.descripcionTxt.getText(), Integer.parseInt(ventana.stockTxt.getText()),
+                            Double.parseDouble(ventana.graMl.getText()));
+                } else if (ventana.aceitesRadioButton.isSelected()) {
+                    modelo.altaAceite(ventana.codigoTxt.getText(), ventana.nombreTxt.getText(),
+                            Double.parseDouble(ventana.precioTxt.getText()), ventana.fechaCadDP.getDate(),
+                            ventana.descripcionTxt.getText(), Integer.parseInt(ventana.stockTxt.getText()),
+                            Double.parseDouble(ventana.graMl.getText()));
+                } else {
+                    modelo.altaComplemento(ventana.codigoTxt.getText(), ventana.nombreTxt.getText(),
+                            Double.parseDouble(ventana.precioTxt.getText()), ventana.fechaCadDP.getDate(),
+                            ventana.descripcionTxt.getText(), Integer.parseInt(ventana.stockTxt.getText()),
+                            Integer.parseInt(ventana.graMl.getText()));
+                }
+            }catch (IllegalArgumentException e) {
+                Util.mensajeError("Has añadido un argumento no valido, en el precio/gramos/ml hay que poner ',' no '.' y ");
             }
-
-            //actualizo la lista que veo bueno y limpio
             limpiarCampos();
             refrescarLista();
             break;
@@ -171,6 +173,7 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
             int posicion=modelo.getListaDeProductos().indexOf(productoEncontrado);
             //aqui voy al list y le digo que vaya a el que este en tal posicion
             ventana.listaProductosAnanidos.setSelectedIndex(posicion);
+
             break;
 
 
@@ -228,10 +231,7 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
         for (Producto productos:modelo.getListaDeProductos()) {
             ventana.dlmProducto.addElement(productos);
         }
-
     }
-
-
 
     //obligatorio por importaciones.
     @Override
@@ -242,6 +242,10 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
             // cojo el producto que he hecho click pero me lo devuelve como objeto literalmente
 
             Producto productoSeleccionado = (Producto) ventana.listaProductosAnanidos.getSelectedValue();
+
+            if(productoSeleccionado==null){
+                return;
+            }
 
             // pongo los datos en los cuadros
             ventana.codigoTxt.setText(productoSeleccionado.getCodigo());
@@ -270,7 +274,7 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
 
     @Override
     public void windowClosing(WindowEvent windowEvent) {
-        int respuesta= Util.mensajeConfirmacionSalida("Seguro que desa salir???", "Salir");
+        int respuesta= Util.mensajeConfirmacionSalida("¿Seguro que desa salir?", "Salir");
         if(respuesta== JOptionPane.OK_OPTION){
             try {
                 guardarDatosConfiguracion();
