@@ -105,7 +105,8 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
                             Integer.parseInt(ventana.graMl.getText()));
                 }
             }catch (IllegalArgumentException e) {
-                Util.mensajeError("Has añadido un argumento no valido, en el precio/gramos/ml hay que poner ',' no '.' y ");
+                Util.mensajeError("Has añadido un argumento no valido, comprueba que precio/gramos/ml tiene peusto ',' y no '.' " +
+                        ", y que has colocado los datos correctamente ");
             }
             limpiarCampos();
             refrescarLista();
