@@ -45,6 +45,7 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
         ventana.exportarButton.addActionListener(listener);
         ventana.nuevoButton.addActionListener(listener);
         ventana.importarButton.addActionListener(listener);
+        ventana.venderButton.addActionListener(listener);
         ventana.infusionRadioButton.addActionListener(listener);
         ventana.aceitesRadioButton.addActionListener(listener);
         ventana.complementosRadioButton.addActionListener(listener);
@@ -103,7 +104,7 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
                         Integer.parseInt(ventana.graMl.getText()));
             }
 
-            //actualizo la lista que veo bueno y limpio que vaya desastre
+            //actualizo la lista que veo bueno y limpio
             limpiarCampos();
             refrescarLista();
             break;
@@ -170,6 +171,24 @@ public class HerbristeriaControlador implements ActionListener, WindowListener, 
             int posicion=modelo.getListaDeProductos().indexOf(productoEncontrado);
             //aqui voy al list y le digo que vaya a el que este en tal posicion
             ventana.listaProductosAnanidos.setSelectedIndex(posicion);
+            break;
+
+
+        case "Vender":
+            // busco el producto por el codigo que salga al darle
+            Producto productoVender = modelo.existeProducto(ventana.codigoTxt.getText());
+
+            if (productoVender == null) {
+                Util.mensajeError("No existe un producto con ese codigo");
+                break;
+            }
+            if (productoVender.getStock() == 0) {
+                Util.mensajeError("No quedan existencias de este producto");
+                break;
+            }
+            // le resto 1 al stock y lo pongo en el cuadro de stock
+            productoVender.setStock(productoVender.getStock() - 1);
+            ventana.stockTxt.setText(String.valueOf(productoVender.getStock()));
             break;
 
         case "Infusion":

@@ -1,9 +1,11 @@
 package com.erikatn.herboristeria.gui;
 
+import com.erikatn.herboristeria.base.Complemento;
 import com.erikatn.herboristeria.base.Producto;
 import com.github.lgooddatepicker.components.DatePicker;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Ventana {
     public JPanel panel1;
@@ -25,7 +27,7 @@ public class Ventana {
     public JButton nuevoButton;
     public JButton importarButton;
     public JButton eliminarButton;
-    public JButton modificarButton;
+    public JButton venderButton;
     public JButton buscarButton;
     public JButton exportarButton;
     //los creo a mio
@@ -37,16 +39,44 @@ public class Ventana {
         frame= new JFrame("Herboristeria");
         frame.setContentPane(panel1);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
         frame.pack();
         frame.setVisible(true);
         initComponents();
 
+
     }
     public void initComponents(){
+        panel1.setBackground(new Color(168, 240, 153));
+        aceitesRadioButton.setBackground(new Color(168, 240, 153));
+        complementosRadioButton.setBackground(new Color(168, 240, 153));
+        infusionRadioButton.setBackground(new Color(168, 240, 153));
+
+        nuevoButton.setBackground(new Color (100, 175, 90));
+        nuevoButton.setForeground(Color.white);
+
+        importarButton.setBackground(new Color (100, 175, 90));
+        importarButton.setForeground(Color.white);
+
+        eliminarButton.setBackground(new Color (100, 175, 90));
+        eliminarButton.setForeground(Color.white);
+        venderButton.setBackground(new Color (100, 175, 90));
+        venderButton.setForeground(Color.white);
+        buscarButton.setBackground(new Color (100, 175, 90));
+        buscarButton.setForeground(Color.white);
+        exportarButton.setBackground(new Color (100, 175, 90));
+        exportarButton.setForeground(Color.white);
+
+       /* ;
+        ;
+        ;
+        ;
+        ;*/
+
+
         dlmProducto=new DefaultListModel<Producto>();
         listaProductosAnanidos.setModel(dlmProducto);
         // esti me sirve para asignar al buscarcodtxt la etiqueta buscar para que cuando se haga un evento pueda funcionar
-        buscarCodTxt.setActionCommand("Buscar");
     }
 
 }
